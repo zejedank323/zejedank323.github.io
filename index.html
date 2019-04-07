@@ -4,27 +4,51 @@
   <title>Dan Kristiansen</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <style>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  <style>
 
-    .sidenav {
-        min-height: 100vh;
-    }
-    .navbar{
-      display: none;
+    @media screen and (min-width: 767px) {
+      .sidenav {
+          min-height: 100vh;
+          position: fixed;
+          width: 250px;
+      }
+      .navbar{
+        display: none;
+      }
+      .material {
+        padding-left: 300px;
+      }
+      .nav-item:hover{
+        cursor: pointer;
+      }
     }
 
-    /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
         display: none;
       }
       .navbar {
-        height: 60px;
+        height: 65px;
         display: block;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
       }
-      .row.content {height: auto;} 
+      .row.content {
+        padding-top: 60px;
+        height: auto;
+      }
+      .collapsing {
+        padding-top: 60px;
+        text-align: center;
+      }
+      .collapse {
+        padding-top: 60px;
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -33,13 +57,13 @@
 <div class="pos-f-t">
     <nav class="navbar navbar-dark bg-dark">
         <img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" height="65px" alt="Me">
-        <a class="pl-2">Dan Kristiansen</a>
-      <button class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="pl-3">Dan Kristiansen</a>
+      <button id="toggle-content" class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapseToggle" aria-expanded="false" aria-controls="collapseToggle">
         <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
-    <div class="collapse" id="navbarToggleExternalContent">
-        <div class="bg-dark p-4">
+    <div class="collapse mb-n5" id="collapseToggle">
+        <div class="bg-dark">
           <ul class="nav flex-column">
             <li class="nav-item">
               <a class="nav-link active">CV</a>
@@ -57,7 +81,7 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-2 sidenav px-4 pt-4 bg-dark">
+    <div class="sidenav px-4 pt-4 bg-dark">
       <img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" alt="Me">
       <h4 class="pt-4">Dan Kristiansen</h4>
       <ul class="nav flex-column">
@@ -73,7 +97,7 @@
       </ul>
     </div>
 
-    <div class="material col-sm-10 py-4">
+    <div class="material col-sm-12 py-3">
       <div id="CV" class="material-item">
         <h2>Målsætning</h2>
           <p>At blive en del af en større organisation. Jeg studerer til dagligt Software på Aalborg Universitet, hvor mit fokus ligger på at udvide mine kompetencer. Jeg har gennem min uddannelse og tidligere stillinger, opnået en god erfaring, inden for Software og dets muligheder for at forenkle processer. Jeg brænder for, fortsat at forbedre mine kompetencer på den måde, at forberede mig til en fuldtidsstilling i erhvervslivet.</p>
@@ -108,7 +132,6 @@
                 </ul>
               </li>
           </ul>
-        <br/>
         <h2>Erfaring</h2>
           <ul class="nav flex-column">
             <li><a>Carlsberg (2016 - 2019)</a>
