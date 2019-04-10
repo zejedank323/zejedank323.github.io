@@ -166,7 +166,9 @@
 <script>
   $(".material-item").hide();
   $("#CV").show();
-
+  var userLang = navigator.language || navigator.userLanguage;
+  console.log(userLang);
+  
   $(".nav-link").click(function(){
     $(".material-item").hide();
     $("#" + $(this).text()).show();
