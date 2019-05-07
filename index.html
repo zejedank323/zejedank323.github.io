@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  <style>
 
@@ -42,6 +42,11 @@
         padding-top: 60px;
         height: auto;
       }
+
+      .material {
+        padding-left: 20px;
+      }
+
       .collapsing {
         padding-top: 60px;
         text-align: center;
@@ -67,13 +72,13 @@
         <div class="bg-dark text-white">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link">CV</a>
+              <a class="nav-link" itemid="CV">CV</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">Aalborg University</a>
+              <a class="nav-link" itemid="AAU">Aalborg University</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link">University of Technology Sydney</a>
+              <a class="nav-link" itemid="UTS">University of Technology Sydney</a>
             </li>
           </ul>
         </div>
@@ -87,18 +92,18 @@
       <h4 class="pt-4 text-white">Dan Kristiansen</h4>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link">CV</a>
+          <a class="nav-link" itemid="CV">CV</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">Aalborg University</a>
+          <a class="nav-link" itemid="AAU">Aalborg University</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link">University of Technology Sydney</a>
+          <a class="nav-link" itemid="UTS">University of Technology Sydney</a>
         </li>
       </ul>
     </div>
 
-    <div class="material col-sm-12 py-3">
+    <div class="material py-3">
       <div id="CV" class="material-item">
         <h2>Målsætning</h2>
           <p>At blive en del af en større organisation. Jeg studerer til dagligt Software på Aalborg Universitet, hvor mit fokus ligger på at udvide mine kompetencer. Jeg har gennem min uddannelse og tidligere stillinger, opnået en god erfaring, inden for Software og dets muligheder for at forenkle processer. Jeg brænder for, fortsat at forbedre mine kompetencer på den måde, at forberede mig til en fuldtidsstilling i erhvervslivet.</p>
@@ -138,7 +143,7 @@
             <li><a>Carlsberg (2016 - 2019)</a>
               <br/>
               <div class="px-4">
-                <a>Jeg er på nuværende tidspunkt ansat som salgskonsulent i Carlsberg. Denne stilling giver mig god erfaring med interaktion med kolleger såvel som kunder.</a>
+                <a>Jeg har ansat som salgskonsulent i Carlsberg. Denne stilling har givet mig en god erfaring med interaktion med kolleger såvel som kunder.</a>
               </div>
             </li>
             <li><a>Ejvind Laursen (2014 -)</a>
@@ -155,8 +160,14 @@
             </li>
           </ul>
       </div>
-      <div id="AAU" class="material-item"></div>
-      <div id="UTS" class="material-item"></div>
+      <div id="AAU" class="material-item">
+        <h2>Aalborg Universitet</h2>
+        <hr>
+      </div>
+      <div id="UTS" class="material-item">
+        <h2>University of Technology Sydney</h2>
+        <hr>
+      </div>
     </div>
   </div>
 </div>
@@ -171,9 +182,9 @@
   
   $(".nav-link").click(function(){
     $(".material-item").hide();
-    $("#" + $(this).text()).show();
-    //$("#collapseToggle").removeClass("collapse");
-    $("#toggle-content").click();
+    $("#" + $(this).attr("itemid")).show();
+    //$("#toggle-content").click();
+    $("#collapseToggle").removeClass("show");
   });
 </script>
 
