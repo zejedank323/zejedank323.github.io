@@ -9,6 +9,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
   <style>
+    .language{
+      display: none;
+    }
 @media screen and (min-width: 767px) {
       hr{
         width: 78vw;
@@ -58,6 +61,13 @@
       .row.content {
         padding-top: 60px;
         height: auto;
+      }
+      .material{
+        padding-left: 3vw;
+        padding-right: 3vw;
+      }
+      .language{
+        visibility: hidden;
       }    
       #collapseToggle{
         padding-top: 60px;
@@ -99,7 +109,18 @@
     <div class="sidenav px-4 pt-4 bg-dark text-white">
       <img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" alt="Me">
       <h4 class="pt-4 text-white"><a href="/index">Dan Kristiansen</a></h4>
-      <ul class="nav flex-column">
+      <ul class="nav flex-column language" language="da-DK">
+        <li class="nav-item">
+          <a class="nav-link" href="/index" itemid="CV">CV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/aau" itemid="AAU">Aalborg Universitet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
+        </li>
+      </ul>
+      <ul class="nav flex-column language" language="en-US">
         <li class="nav-item">
           <a class="nav-link" href="/index" itemid="CV">CV</a>
         </li>
@@ -112,7 +133,7 @@
       </ul>
     </div>
 
-    <div class="material px-3 py-3">
+    <div class="material py-3">
         {{ content }}
     </div>
   </div>
@@ -121,17 +142,11 @@
 </body>
 
 <script>
-  $(".material-item").hide();
-  $("#CV").show();
   var userLang = navigator.language || navigator.userLanguage;
-  console.log(userLang);
-  
-  //$(".nav-link").click(function(){
-  //  $(".material-item").hide();
-  //  $("#" + $(this).attr("itemid")).show();
-  //  //$("#toggle-content").click();
-  //  $("#collapseToggle").removeClass("show");
-  //});
+  var show = $("[language=" + userLang + "]").show();
+  if(show.empty){
+    $("[language=en-US]").show();
+  }
 </script>
 
 </html>
