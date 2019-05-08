@@ -1,0 +1,11 @@
+---
+layout: default
+title: AAU
+---
+<h2>Aalborg University</h2>
+<hr>
+{% assign filtered_posts = site.posts | where: 'tag', "aau" %}
+{% for post in filtered_posts %}
+    <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>
+    <p>{{ post.excerpt }}</p>
+{% endfor %}

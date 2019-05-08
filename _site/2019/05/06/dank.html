@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="dk">
+<head>
+  <title>Dan Kristiansen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+  <style>
+    
+    @media screen and (min-width: 767px) {
+      .sidenav {
+          min-height: 100vh;
+          position: fixed;
+          width: 250px;
+      }
+      .sidenav h4{
+        cursor: pointer;
+      }
+      .navbar{
+        display: none;
+      }
+      .material {
+        padding-left: 300px;
+        padding-right: 50px;
+      }
+      .nav-link:hover{
+        cursor: pointer;
+      }
+      .sidenav a{
+        text-decoration: none;
+        color: white;
+      }     
+    }
+
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        display: none;
+      }
+      .pos-f-t a{
+        text-decoration: none;
+        color: white;
+      }
+      .navbar {
+        height: 65px;
+        display: block;
+        position: fixed;
+        width: 100%;
+        z-index: 1;
+      }
+      .row.content {
+        padding-top: 60px;
+        height: auto;
+      }
+
+      .material {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .collapsing {
+        padding-top: 60px;
+        text-align: center;
+      }
+      .collapse {
+        padding-top: 60px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="pos-f-t">
+    <nav class="navbar navbar-dark bg-dark">
+        <img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" height="65px" alt="Me">
+        <a class="pl-4 navbar-brand text-white">Dan Kristiansen</a>
+      <button id="toggle-content" class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapseToggle">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+    <div class="collapse mb-n5" id="collapseToggle">
+        <div class="bg-dark text-white">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="/index" itemid="CV">CV</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="sidenav px-4 pt-4 bg-dark text-white">
+      <img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" alt="Me">
+      <h4 class="pt-4 text-white"><a href="/index">Dan Kristiansen</a></h4>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="/index" itemid="CV">CV</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="material py-3">
+        <h2>Dank</h2>
+<hr>
+<p>06 May 2019 - dank</p>
+
+<p>Test example</p>
+
+    </div>
+  </div>
+</div>
+
+</body>
+
+<script>
+  $(".material-item").hide();
+  $("#CV").show();
+  var userLang = navigator.language || navigator.userLanguage;
+  console.log(userLang);
+  
+  //$(".nav-link").click(function(){
+  //  $(".material-item").hide();
+  //  $("#" + $(this).attr("itemid")).show();
+  //  //$("#toggle-content").click();
+  //  $("#collapseToggle").removeClass("show");
+  //});
+</script>
+
+</html>
