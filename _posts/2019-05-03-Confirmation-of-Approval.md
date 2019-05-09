@@ -3,6 +3,7 @@ layout: post
 author: Dan Kristiansen
 tag: uts
 language: en
+title: Confirmation of Enrolment
 ---
 
 It finally happende, I recieved my CoE (Confirmation of Enrolment) from UTS.
