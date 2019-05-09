@@ -36,7 +36,7 @@
         color: white;
         cursor: pointer;
       }
-      .sidenav a:active{
+      .sidenav a.active{
         text-decoration-line: underline;
       }
     }
@@ -89,13 +89,13 @@
         <div class="bg-dark text-white">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link" href="/index" itemid="CV">CV</a>
+              <a class="nav-link" onclick="addURL(this)" href="/index" itemid="CV">CV</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
+              <a class="nav-link" onclick="addURL(this)" href="/aau" itemid="AAU">Aalborg University</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
+              <a class="nav-link" onclick="addURL(this)" href="/uts" itemid="UTS">University of Technology Sydney</a>
             </li>
           </ul>
         </div>
@@ -107,30 +107,19 @@
     <div class="sidenav px-4 pt-4 bg-dark text-white">
       <img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" alt="Me">
       <h4 class="pt-4 text-white"><a href="/index">Dan Kristiansen</a></h4>
-      <ul class="nav flex-column language" language="da-DK">
+      <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="/index" itemid="CV">CV</a>
+          <a class="nav-link" onclick="addURL(this)" href="/index" itemid="CV">CV</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/aau" itemid="AAU">Aalborg Universitet</a>
+          <a class="nav-link" onclick="addURL(this)" href="/aau" itemid="AAU">Aalborg Universitet</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
-        </li>
-      </ul>
-      <ul class="nav flex-column language" language="en-US">
-        <li class="nav-item">
-          <a class="nav-link" href="/index" itemid="CV">CV</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
+          <a class="nav-link" onclick="addURL(this)" href="/uts" itemid="UTS">University of Technology Sydney</a>
         </li>
       </ul>
       <div class="py-3 align-text-bottom">
-        <p><a languageselect="da-DK">Da</a> | <a languageselect="en-US">En</a></p>
+        <p><a class="languageselectors" languageselect="da-DK">Da</a> | <a class="languageselectors" languageselect="en-US">En</a></p>
       </div>
     </div>
 
@@ -143,11 +132,46 @@
 </body>
 
 <script>
-  var userLang = navigator.language || navigator.userLanguage;
-  var show = $("[language=" + userLang + "]").show().addClass('active');
-  if(show.length == 0){
-    $("[language=en-US]").show().addClass('active');
+//  function GetURLParameter(sParam){
+//    var sPageURL = window.location.search.substring(1);
+//    var sURLVariables = sPageURL.split('&');
+//    for (var i = 0; i < sURLVariables.length; i++)
+//    {
+//        var sParameterName = sURLVariables[i].split('=');
+//        if (sParameterName[0] == sParam)
+//        {
+//            return sParameterName[1];
+//        }
+//    }
+//  }​
+  var userLang = window.location.search.substring(1).split('=')[1] || navigator.language || navigator.userLanguage;
+  var newUrl = "?language=" + userLang;
+  shower();
+  
+  $("[languageselect=" + userLang + "]").addClass("active");
+  $(".languageselectors").on("click",function(){
+    $(".languageselectors").removeClass("active");
+    $(this).addClass("active");
+    userLang = $(this).attr('languageselect');
+    newUrl = "?language=" + userLang;
+    $(".language").hide();
+    shower();
+  });
+
+
+  function shower(){
+    var show = $("[language=" + userLang + "]").show();
+    if(show.length == 0){
+      $("[language=en-US]").show();
+      userLang = "en-US";
+    }
   }
+  function addURL(element){
+    $(element).attr('href', function() {
+        return element.href + newUrl;
+    });
+  } 
+
 </script>
 
 </html>
