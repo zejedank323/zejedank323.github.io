@@ -144,7 +144,8 @@
 <script>
   var userLang = navigator.language || navigator.userLanguage;
   var show = $("[language=" + userLang + "]").show();
-  if(show.empty){
+  console.log(show);
+  if(show.length == 0){
     $("[language=en-US]").show();
   }
 </script>

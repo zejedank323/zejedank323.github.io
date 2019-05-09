@@ -2,10 +2,26 @@
 layout: default
 title: AAU
 ---
+{% assign filtered_posts = site.posts | where: 'tag', "aau"%}
+{% assign enlanguage_posts = filtered_posts | where: 'language', 'en' %}
+{% assign dklanguage_posts = filtered_posts | where: 'language', 'da-DK' %}
+
+<div class="language" language="en">
 <h2>Aalborg University</h2>
 <hr>
-{% assign filtered_posts = site.posts | where: 'tag', "aau" %}
-{% for post in filtered_posts %}
+{% for post in enlanguage_posts %}
     <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>
     <p>{{ post.excerpt }}</p>
 {% endfor %}
+
+</div>
+
+<div class="language" language="da-DK">
+<h2>Aalborg Universitet</h2>
+<hr>
+{% for post in dklanguage_posts %}
+    <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>
+    <p>{{ post.excerpt }}</p>
+{% endfor %}
+
+</div>
