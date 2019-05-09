@@ -31,13 +31,14 @@
         padding-left: 300px;
         padding-right: 50px;
       }
-      .nav-link:hover{
-        cursor: pointer;
-      }
       .sidenav a{
         text-decoration: none;
         color: white;
-      }   
+        cursor: pointer;
+      }
+      .sidenav a:active{
+        text-decoration-line: underline;
+      }
     }
 
     @media screen and (max-width: 767px) {
@@ -66,9 +67,6 @@
         padding-left: 3vw;
         padding-right: 3vw;
       }
-      .language{
-        visibility: hidden;
-      }    
       #collapseToggle{
         padding-top: 60px;
         text-align: center;
@@ -131,6 +129,9 @@
           <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
         </li>
       </ul>
+      <div class="py-3 align-text-bottom">
+        <p><a languageselect="da-DK">Da</a> | <a languageselect="en-US">En</a></p>
+      </div>
     </div>
 
     <div class="material py-3">
@@ -143,10 +144,9 @@
 
 <script>
   var userLang = navigator.language || navigator.userLanguage;
-  var show = $("[language=" + userLang + "]").show();
-  console.log(show);
+  var show = $("[language=" + userLang + "]").show().addClass('active');
   if(show.length == 0){
-    $("[language=en-US]").show();
+    $("[language=en-US]").show().addClass('active');
   }
 </script>
 
