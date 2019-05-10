@@ -67,6 +67,10 @@
         padding-left: 3vw;
         padding-right: 3vw;
       }
+      .material img{
+        padding-left: -3vw;
+        padding-right: -3vw;
+      }
       #collapseToggle{
         padding-top: 60px;
         text-align: center;
@@ -147,8 +151,8 @@
   var userLang = window.location.search.substring(1).split('=')[1] || navigator.language || navigator.userLanguage;
   var newUrl = "?language=" + userLang;
   shower();
-
   $("[languageselect=" + userLang + "]").addClass("active");
+
   $(".languageselectors").on("click",function(){
     $(".languageselectors").removeClass("active");
     $(this).addClass("active");
@@ -157,11 +161,9 @@
     $(".language").hide();
     shower();
   });
-
   $("a").on("click",function(){
     addURL(this);
   });
-
   function shower(){
     var show = $("[language=" + userLang + "]").show();
     if(show.length == 0){
@@ -176,5 +178,4 @@
   } 
 
 </script>
-
 </html>
