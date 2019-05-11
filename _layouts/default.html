@@ -28,8 +28,7 @@
         display: none;
       }
       .material {
-        padding-left: 300px;
-        padding-right: 50px;
+        margin-left: 250px;
       }
       .sidenav a{
         text-decoration: none;
@@ -73,6 +72,7 @@
       }
       #collapseToggle{
         padding-top: 60px;
+        vertical-align: center;
         text-align: center;
         width: 100vw;
       }
@@ -85,7 +85,7 @@
     <nav class="navbar navbar-dark bg-dark">
         <a href="/index"><img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" height="65px" alt="Me"></a>
         <a class="pl-4 navbar-brand text-white" href="/index">Dan Kristiansen</a>
-      <button id="toggle-content" class="navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapseToggle">
+      <button id="toggle-content" class="mt-1 navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapseToggle">
         <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
@@ -127,7 +127,7 @@
       </div>
     </div>
 
-    <div class="material py-3">
+    <div class="material py-3 px-3">
         {{ content }}
     </div>
   </div>
