@@ -4,12 +4,14 @@ title: University of Technology Sydney
 ---
 
 {% assign filtered_posts = site.posts | where: 'tag', "uts"%}
-{% assign enlanguage_posts = filtered_posts | where: 'language', 'en' %}
-{% assign dklanguage_posts = filtered_posts | where: 'language', 'da-DK' %}
+{% assign enlanguage_posts = filtered_posts | where: 'lang', 'en' %}
+{% assign dklanguage_posts = filtered_posts | where: 'lang', 'da-DK' %}
 
-<div class="language" language="en-US">
+{% assign poststet = filtered_posts | where: 'lang', page.lang %}
 <h2>University of Technology Sydney</h2>
 <hr>
+
+<div class="language" language="en-US">
 {% for post in enlanguage_posts %}
     <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>
     <p>{{ post.excerpt }}</p>
@@ -18,9 +20,6 @@ title: University of Technology Sydney
 </div>
 
 <div class="language" language="da-DK">
-<h2>University of Technology Sydney</h2>
-<hr>
-
 {% for post in dklanguage_posts %}
     <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>
     <p>{{ post.excerpt }}</p>

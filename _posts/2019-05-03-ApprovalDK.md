@@ -2,7 +2,8 @@
 layout: post
 author: Dan Kristiansen
 tag: uts
-language: da-DK
+lang: da-DK
+lang-ref: approval
 title: Bekræftelse på optagelse
 ---
 

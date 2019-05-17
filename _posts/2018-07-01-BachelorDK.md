@@ -2,7 +2,8 @@
 layout: post
 author: Dan Kristiansen
 tag: aau
-language: da-DK
+lang: da-DK
+lang-ref: bachelor
 title: Bachelor
 ---
 Jeg fik idag mit bachelor bevis fra Aalborg Universitet.
