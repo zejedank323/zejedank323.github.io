@@ -113,7 +113,7 @@
                 {% assign enposts=pages | where:"lang", "en" %}
               {% endif %}
               <a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
-              <a class="languageselectors" languageselect="en-US" href="{{ enposts.first.url }}">En</a>
+              <a class="languageselectors" languageselect="en" href="{{ enposts.first.url }}">En</a>
               </p>
             </li>
 
@@ -187,7 +187,7 @@
           {% assign enposts=pages | where:"lang", "en" %}
         {% endif %}
         <p><a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
-        <a class="languageselectors" languageselect="en-US" href="{{ enposts.first.url }}">En</a></p>
+        <a class="languageselectors" languageselect="en" href="{{ enposts.first.url }}">En</a></p>
       </div>
     </div>
 
@@ -205,6 +205,16 @@
     userLang = navigator.language || navigator.userLanguage;
     Cookies.set("language", userLang);
   }
+  
+  if(userLang != "{{page.lang}}"){
+    if (userLang == "da-DK"){
+      location.href = "{{ dkposts.first.url }}";
+    }
+    else{
+      location.href = "{{ enposts.first.url }}";
+    }
+  }
+
   $("[languageselect=" + userLang + "]").addClass("active");
   $(".languageselectors").on("click",function(){
     $(".languageselectors").removeClass("active");
