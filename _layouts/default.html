@@ -12,6 +12,12 @@
     .language{
       display: none;
     }
+    .sidenav a.active{
+      text-decoration-line: underline;
+    }
+    .collapse a.active{
+      text-decoration-line: underline;
+    }
 @media screen and (min-width: 767px) {
       hr{
         width: 78vw;
@@ -34,9 +40,6 @@
         text-decoration: none;
         color: white;
         cursor: pointer;
-      }
-      .sidenav a.active{
-        text-decoration-line: underline;
       }
       .img-fluid{
           max-width: 50vw;
@@ -148,7 +151,7 @@
       </div>
     </div>
 
-    <div class="material py-3 px-2">
+    <div class="material py-3 px-2" data-toggle="collapse" data-target="#collapseToggle.show">
         {{ content }}
     </div>
   </div>
