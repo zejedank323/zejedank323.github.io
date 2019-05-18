@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
   <style>
     .language{
       display: none;
@@ -86,37 +87,54 @@
 
 <div class="pos-f-t">
     <nav class="navbar navbar-dark bg-dark">
+        {% if page.lang == "da-DK" %}
+        <a href="/indexDK"><img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" height="65px" alt="Me"></a>
+        <a class="pl-5 navbar-brand text-white" href="/indexDK">Dan Kristiansen</a>
+        {% else %}
         <a href="/index"><img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" height="65px" alt="Me"></a>
         <a class="pl-5 navbar-brand text-white" href="/index">Dan Kristiansen</a>
+        {% endif %}
       <button id="toggle-content" class="mt-1 navbar-toggler float-right" type="button" data-toggle="collapse" data-target="#collapseToggle">
         <span class="navbar-toggler-icon"></span>
       </button>
     </nav>
-    <div class="collapse mb-n5" id="collapseToggle">
+    <div class="collapse" id="collapseToggle">
         <div class="bg-dark text-white">
           <ul class="nav flex-column">
             <li class="nav-item">
+                <p>{{ page.lang-ref }}</p>
               <p>Languages:
-              {% if page.lang-ref %}
-                {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
-                {% assign dkposts=posts | where:"lang", "da-DK" %}
-                {% assign enposts=posts | where:"lang", "en" %}
-                <a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
-                <a class="languageselectors" languageselect="en-US" href="{{ enposts.first.url }}">En</a>
-              {% else %}
-                <a class="languageselectors" languageselect="da-DK" >Da</a> | <a class="languageselectors" languageselect="en-US" >En</a>
-              {% endif %}
+                {{ page.lang }}
+              {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
+              {% assign dkposts=posts | where:"lang", "da-DK" %}
+              {% assign enposts=posts | where:"lang", "en" %}
+              <a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
+              <a class="languageselectors" languageselect="en-US" href="{{ enposts.first.url }}">En</a>
               </p>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/index" itemid="CV">CV</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
-            </li>
+
+            {% if page.lang == "da-DK" %}
+              <li class="nav-item">
+                <a class="nav-link" href="/indexDK" itemid="CV">CV</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/aauDK" itemid="AAU">Aalborg Universitet</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/utsDK" itemid="UTS">University of Technology Sydney</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="/index" itemid="CV">CV</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
+              </li>
+            {% endif %}
+
           </ul>
         </div>
     </div>
@@ -126,28 +144,46 @@
   <div class="row content">
     <div class="sidenav px-4 pt-4 bg-dark text-white">
       <img src="https://media.licdn.com/dms/image/C5603AQHjM7pzB-YcoQ/profile-displayphoto-shrink_200_200/0?e=1559779200&v=beta&t=3mdNuHSpZ34XpD694R6YQ2qA25oaudOxTnHqVkljdEA" class="rounded-circle" alt="Me">
+      {% if page.lang == "da-DK" %}
+      <h4 class="pt-4 text-white"><a href="/indexDK">Dan Kristiansen</a></h4>
+      {% else %}
       <h4 class="pt-4 text-white"><a href="/index">Dan Kristiansen</a></h4>
+      {% endif %}
       <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="/index" itemid="CV">CV</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
-        </li>
+          {% if page.lang == "da-DK" %}
+          <li class="nav-item">
+            <a class="nav-link" href="/indexDK" itemid="CV">CV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/aauDK" itemid="AAU">Aalborg Universitet</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/utsDK" itemid="UTS">University of Technology Sydney</a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+              <a class="nav-link" href="/index" itemid="CV">CV</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/aau" itemid="AAU">Aalborg University</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
+          </li>
+        {% endif %}
       </ul>
-      <div class="py-4 px-4 fixed-bottom text-align-bottom">
-        {% if page.lang-ref %}
+      <div class="py-4 px-4 fixed-bottom text-align-bottom">     
+        {% if page.type != "page" %}
           {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
           {% assign dkposts=posts | where:"lang", "da-DK" %}
           {% assign enposts=posts | where:"lang", "en" %}
-          <p><a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
-          <a class="languageselectors" languageselect="en-US" href="{{ enposts.first.url }}">En</a></p>
         {% else %}
-          <p><a class="languageselectors" languageselect="da-DK" >Da</a> | <a class="languageselectors" languageselect="en-US" >En</a></p>
+          {% assign pages=site.pages | where:"lang-ref", page.lang-ref %}
+          {% assign dkposts=pages | where:"lang", "da-DK" %}
+          {% assign enposts=pages | where:"lang", "en" %}
         {% endif %}
+        <p><a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
+        <a class="languageselectors" languageselect="en-US" href="{{ enposts.first.url }}">En</a></p>
       </div>
     </div>
 
@@ -160,37 +196,17 @@
 </body>
 
 <script>
-  var userLang = window.location.search.substring(1).split('=')[1] || navigator.language || navigator.userLanguage;
-  var newUrl = "?language=" + userLang;
+  var userLang = Cookies.get("language");
+  if(userLang == undefined){
+    userLang = navigator.language || navigator.userLanguage;
+    Cookies.set("language", userLang);
+  }
   $("[languageselect=" + userLang + "]").addClass("active");
-  shower();
-
   $(".languageselectors").on("click",function(){
     $(".languageselectors").removeClass("active");
     $(this).addClass("active");
     userLang = $(this).attr('languageselect');
-    newUrl = "?language=" + userLang;
-    $(".language").hide();
-    shower();
+    Cookies.set("language", userLang);
   });
-
-  $("a").on("click",function(){
-    addURL(this);
-  });
-
-  function shower(){
-    var show = $("[language=" + userLang + "]").show();
-    if(show.length == 0){
-      $("[language=en-US]").show();
-      userLang = "en-US";
-    }
-  }
-  
-  function addURL(element){
-    $(element).attr('href', function() {
-        return element.href + newUrl;
-    });
-  } 
-
 </script>
 </html>
