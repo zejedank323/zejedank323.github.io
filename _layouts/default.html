@@ -102,12 +102,16 @@
         <div class="bg-dark text-white">
           <ul class="nav flex-column">
             <li class="nav-item">
-                <p>{{ page.lang-ref }}</p>
               <p>Languages:
-                {{ page.lang }}
-              {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
-              {% assign dkposts=posts | where:"lang", "da-DK" %}
-              {% assign enposts=posts | where:"lang", "en" %}
+              {% if page.type != "page" %}
+                {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
+                {% assign dkposts=posts | where:"lang", "da-DK" %}
+                {% assign enposts=posts | where:"lang", "en" %}
+              {% else %}
+                {% assign pages=site.pages | where:"lang-ref", page.lang-ref %}
+                {% assign dkposts=pages | where:"lang", "da-DK" %}
+                {% assign enposts=pages | where:"lang", "en" %}
+              {% endif %}
               <a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
               <a class="languageselectors" languageselect="en-US" href="{{ enposts.first.url }}">En</a>
               </p>
