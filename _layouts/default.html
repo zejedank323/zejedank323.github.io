@@ -124,6 +124,7 @@
     <div class="collapse" id="collapseToggle">
         <div class="bg-dark text-white">
           <ul class="nav flex-column">
+            <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
             <li class="nav-item">
               <p>Languages:
               {% if page.type != "page" %}
@@ -161,7 +162,6 @@
                   <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
               </li>
             {% endif %}
-            <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
           </ul>
         </div>
     </div>
@@ -177,6 +177,7 @@
       <h4 class="pt-4 text-white"><a href="/index">Dan Kristiansen</a></h4>
       {% endif %}
       <ul class="nav flex-column">
+          <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
           {% if page.lang == "da-DK" %}
           <li class="nav-item">
             <a class="nav-link" href="/indexDK" itemid="CV">CV</a>
@@ -198,7 +199,6 @@
               <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
           </li>
         {% endif %}
-        <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
       </ul>
       <div class="py-4 px-4 fixed-bottom text-align-bottom">     
         {% if page.type != "page" %}
@@ -224,11 +224,11 @@
 </body>
 
 <script>
-  //var userLang = Cookies.get("language");
+  var userLang = Cookies.get("language");
   if(userLang == undefined){
     userLang = navigator.language || navigator.userLanguage;
-    //Cookies.set("language", userLang);
-    cookieconsent.language = userLang;
+    Cookies.set("language", userLang);
+    //cookieconsent.language = userLang;
   }
   
   if(userLang != "{{page.lang}}"){
@@ -245,8 +245,8 @@
     $(".languageselectors").removeClass("active");
     $(this).addClass("active");
     userLang = $(this).attr('languageselect');
-    //Cookies.set("language", userLang);
-    cookieconsent.language = userLang;
+    Cookies.set("language", userLang);
+    //cookieconsent.language = userLang;
   });
 </script>
 </html>
