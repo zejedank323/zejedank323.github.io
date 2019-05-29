@@ -15,6 +15,6 @@ Det betyder at jeg har fået en officiel UTS email addresse og login til deres i
 
 <img class="img-fluid" src="/images/subjects.png"/>
 
-Nu mangler jeg bare at blive tilmeldt og få en plads i 24 credits ~ 30 ECT point.
+Nu mangler jeg bare at blive tilmeldt og få en plads i 24 credits ~ 30 ECTS point.
 
 Mere information følger.

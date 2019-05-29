@@ -85,8 +85,14 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
   <script>
+    var userLang = cookieconsent.name;
+    console.log(cookieconsent.cookie);
   window.addEventListener("load", function(){
   window.cookieconsent.initialise({
+    "cookie": {
+      "name": 'Dan Kristiansen',
+      "language": userLang
+    },
     "palette": {
       "popup": {
         "background": "#3c404d",
@@ -155,7 +161,7 @@
                   <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
               </li>
             {% endif %}
-
+            <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
           </ul>
         </div>
     </div>
@@ -192,6 +198,7 @@
               <a class="nav-link" href="/uts" itemid="UTS">University of Technology Sydney</a>
           </li>
         {% endif %}
+        <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
       </ul>
       <div class="py-4 px-4 fixed-bottom text-align-bottom">     
         {% if page.type != "page" %}
@@ -217,10 +224,11 @@
 </body>
 
 <script>
-  var userLang = Cookies.get("language");
+  //var userLang = Cookies.get("language");
   if(userLang == undefined){
     userLang = navigator.language || navigator.userLanguage;
-    Cookies.set("language", userLang);
+    //Cookies.set("language", userLang);
+    cookieconsent.language = userLang;
   }
   
   if(userLang != "{{page.lang}}"){
@@ -237,7 +245,8 @@
     $(".languageselectors").removeClass("active");
     $(this).addClass("active");
     userLang = $(this).attr('languageselect');
-    Cookies.set("language", userLang);
+    //Cookies.set("language", userLang);
+    cookieconsent.language = userLang;
   });
 </script>
 </html>
