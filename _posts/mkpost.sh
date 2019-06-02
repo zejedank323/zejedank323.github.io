@@ -4,7 +4,7 @@ echo "---
 layout: post
 author: Dan Kristiansen
 tag: 
-language: 
+lang: 
+lang-ref:
 title: 
 ---" > $DATE-$1".md"
-vscode $DATE-$1".md"
