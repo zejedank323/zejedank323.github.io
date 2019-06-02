@@ -8,7 +8,7 @@ lang-ref: aau
 {% assign filtered_posts = site.posts | where: 'tag', "aau"%}
 {% assign poststet = filtered_posts | where: 'lang', page.lang %}
 
-<h2>Aalborg University</h2>
+<h1>Aalborg University</h1>
 <hr>
 {% for post in poststet %}
     <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>

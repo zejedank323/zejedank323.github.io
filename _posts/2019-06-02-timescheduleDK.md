@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Dan Kristiansen
-tag: UTS
+tag: uts
 lang: da-DK
 lang-ref: schedule
 title: Forventet Skema

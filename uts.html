@@ -9,9 +9,10 @@ lang: en
 {% assign filtered_posts = site.posts | where: 'tag', "uts"%}
 
 {% assign poststet = filtered_posts | where: 'lang', page.lang %}
-<h2>University of Technology Sydney</h2>
+<h1>University of Technology Sydney</h1>
 <hr>
 {% for post in poststet %}
     <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>
-    <p>{{ post.excerpt }} ...</p>
+    <p>{{ post.excerpt }}</p>
+
 {% endfor %}

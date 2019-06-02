@@ -1,7 +1,7 @@
 ---
 layout: post
 author: Dan Kristiansen
-tag: UTS
+tag: uts
 lang: en
 lang-ref: schedule
 title: Expected Timeschedule
