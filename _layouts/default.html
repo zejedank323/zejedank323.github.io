@@ -224,11 +224,12 @@
   var userLang = Cookies.get("language") || navigator.language || navigator.userLanguage;
     
   if(userLang != "{{page.lang}}"){
-//    Cookies.set("language", userLang);
     if (userLang == "da-DK"){
+      Cookies.set("language", userLang);
       location.href = "{{ dkposts.first.url }}";
     }
     else{
+      Cookies.set("language", userLang);
       location.href = "{{ enposts.first.url }}";
     }
   }
@@ -239,7 +240,6 @@
     $(this).addClass("active");
     userLang = $(this).attr('languageselect');
     Cookies.set("language", userLang);
-    //cookieconsent.language = userLang;
   });
 </script>
 </html>
