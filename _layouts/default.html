@@ -224,7 +224,7 @@
   var userLang = Cookies.get("language") || navigator.language || navigator.userLanguage;
     
   if(userLang != "{{page.lang}}"){
-    Cookies.set("language", userLang);
+//    Cookies.set("language", userLang);
     if (userLang == "da-DK"){
       location.href = "{{ dkposts.first.url }}";
     }
