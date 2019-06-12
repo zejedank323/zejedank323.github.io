@@ -225,11 +225,10 @@
     
   if(userLang != "{{page.lang}}"){
     if (userLang == "da-DK"){
-      Cookies.set("language", userLang);
       location.href = "{{ dkposts.first.url }}";
     }
     else{
-      Cookies.set("language", userLang);
+      Cookies.set("language", "en");
       location.href = "{{ enposts.first.url }}";
     }
   }
