@@ -7,17 +7,17 @@ lang-ref: 8semester
 title: 8. Semester afsluttet
 ---
 
-2.semester af min mester er nu afsluttet.
+2.semester af min kandidat er nu afsluttet.
 
-Det næste og 3.semester er forhåndsgodkendt, så længe jeg overfører relevante kurser med en værdi af 30 ECTS point. Universitetet jeg vil deltage er UTS (University of Technology Sydney), ifølge <a href = "https://www.uts.edu.au/about/university/facts-figures-andrankings/ratings-andrrankings ">QS University Ranking 2020</a> er UTS rangeret som de 140 bedste i verden og inden for 100 bests af Computer Science.
+Det næste og 3.semester af min kandidat er forhåndsgodkendt hvis jeg består relevante kurser med en værdi af 30 ECTS point. Universitetet jeg vil studere på er UTS (University of Technology Sydney), ifølge <a href = "https://www.uts.edu.au/about/university/facts-figures-andrankings/ratings-andrrankings ">QS University Ranking 2020</a> er UTS rangeret som det 140 bedste i verden og top 100 over Computer Science.
 
 Kurserne er angivet i nedenstående tabel, den indeholder kursusnavn, ECTS-point og den endelige karakter, der er modtaget.
 
-<table>
+<table class="table">
   <tr>
     <th> Kursus </th>
     <th> ECTS </th>
-    <th> Grade </th>
+    <th> Karakter </th>
   </Tr>
   <tr>
     <td> Software Innovation </td>

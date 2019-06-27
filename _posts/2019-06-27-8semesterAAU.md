@@ -13,7 +13,7 @@ The next, and 3rd semester has been pre-approved as long as I pass relevant cour
 
 The courses are listed in the table below, it contains course name, ECTS points and the final grade received.
 
-<table>
+<table class="table">
   <tr>
     <th>Course</th>
     <th>ECTS</th>
