@@ -5,7 +5,7 @@ layout: post
 author: Dan Kristiansen
 tag: 
 lang: en
-lang-ref:
+lang-ref: $1
 title: 
 ---" > $DATE-$1".md"
 
@@ -14,6 +14,6 @@ layout: post
 author: Dan Kristiansen
 tag: 
 lang: da-DK
-lang-ref:
+lang-ref: $1
 title: 
 ---" > $DATE-$1"DK.md"
