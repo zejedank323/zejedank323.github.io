@@ -11,7 +11,7 @@ The 2nd semester of my master has now terminated.
 
 The next, and 3rd semester has been pre-approved as long as I pass relevant courses worth 30 ECTS points. The University I will attend is UTS (University of Technology Sydney), according to <a href="https://www.uts.edu.au/about/university/facts-figures-and-rankings/ratings-and-rankings">QS University Ranking 2020</a> is UTS ranked as the 140 best in the world and within the 100 bests of Computer Science. 
 
-The courses are listed in the table below, it contains course name, ECTS points and the final grade received.
+The courses I completed in this semester are listed in the table below, it contains course name, ECTS points and the final grade received.
 
 <table class="table">
   <tr>

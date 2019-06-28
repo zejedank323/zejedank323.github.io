@@ -11,7 +11,7 @@ title: 8. Semester afsluttet
 
 Det næste og 3.semester af min kandidat er forhåndsgodkendt hvis jeg består relevante kurser med en værdi af 30 ECTS point. Universitetet jeg vil studere på er UTS (University of Technology Sydney), ifølge <a href = "https://www.uts.edu.au/about/university/facts-figures-andrankings/ratings-andrrankings ">QS University Ranking 2020</a> er UTS rangeret som det 140 bedste i verden og top 100 over Computer Science.
 
-Kurserne er angivet i nedenstående tabel, den indeholder kursusnavn, ECTS-point og den endelige karakter, der er modtaget.
+Kurserne jeg havde på dette semester er angivet i nedenstående tabel, tabellen indeholder kursusnavn, ECTS-point og den endelige karakter.
 
 <table class="table">
   <tr>
