@@ -12,7 +12,9 @@ lang: en
 <h1>University of Technology Sydney</h1>
 <hr>
 {% for post in poststet %}
-    <h2><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a></h2>
-    <p>{{ post.excerpt }}</p>
-
+    <div>
+        <h3><a class="text-dark" href="{{ post.url }}">{{ post.title }}</a> </h3>
+        {{ post.excerpt }}
+        
+    </div>
 {% endfor %}
