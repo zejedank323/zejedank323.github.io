@@ -42,5 +42,5 @@ Kurserne jeg havde på dette semester er angivet i nedenstående tabel, tabellen
 </table>
 
 
-Jeg er meget begejstret for, at jeg kun har en enkelt eksamen tilbage på Aalborg Universitet, nemlig masterprojektet, som skyldes foråret 2020. Jeg glæder mig til mit næste semester i Sydney, jeg vil forsøge at holde dig opdateret på universitetet of Technology Sydney fanebladet af denne blog.
+Jeg er meget begejstret for, at jeg kun har en enkelt eksamen tilbage på Aalborg Universitet, nemlig masterprojektet, som alsluttes i foråret 2020. Jeg glæder mig til mit næste semester i Sydney, jeg vil forsøge at holde jer opdateret på University of Technology Sydney fanebladet af denne blog.
 
