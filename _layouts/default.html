@@ -36,6 +36,7 @@
       }
       .material {
         margin-left: 280px;
+        width: 130vh;
       }
       .sidenav a{
         text-decoration: none;
@@ -63,7 +64,10 @@
         display: block;
         position: fixed;
         width: 100vw;
-        z-index: 1;
+        z-index: 2;
+      }
+      .list-group {
+        z-index: 3;
       }
       .row.content {
         padding-top: 60px;
@@ -74,11 +78,12 @@
         margin-right: -2vw;
       }
       #collapseToggle{
-        padding-top: 60px;
+        padding-top: 64px;
         position: fixed;
         vertical-align: center;
         text-align: center;
         width: 100vw;
+        z-index: 1;
       }
     }
   </style>
@@ -121,8 +126,8 @@
     <div class="collapse" id="collapseToggle">
         <div class="bg-dark text-white">
           <ul class="nav flex-column">
-            <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
-            <li class="nav-item">
+              <li class="pt-1"> <a class="mr-2" href="https://www.linkedin.com/in/dan-kristiansen-35a460161"><img width="25px" src="/images/linkedin.png"></a><a class="mr-2" href="https://github.com/dank100"><img width="25px" src="/images/github-logo.png"></a><a href="https://gitlab.com/DanK0"><img width="25px" src="/images/gitlab-logo.png"></a></li>
+              <li class="nav-item">
               <p>Languages:
               {% if page.type != "page" %}
                 {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
@@ -174,7 +179,7 @@
       <h4 class="pt-4 text-white"><a href="/index">Dan Kristiansen</a></h4>
       {% endif %}
       <ul class="nav flex-column">
-          <li><a class="nav-link" href="https://www.linkedin.com/in/dan-kristiansen-35a460161">LinkedIn</a></li>
+        <li class="pl-3"> <a class="mr-2" href="https://www.linkedin.com/in/dan-kristiansen-35a460161"><img width="25px" src="/images/linkedin.png"></a><a class="mr-2" href="https://github.com/dank100"><img width="25px" src="/images/github-logo.png"></a><a href="https://gitlab.com/DanK0"><img width="25px" src="/images/gitlab-logo.png"></a></li>
           {% if page.lang == "da-DK" %}
           <li class="nav-item">
             <a class="nav-link" href="/indexDK" itemid="CV">CV</a>
@@ -197,7 +202,7 @@
           </li>
         {% endif %}
       </ul>
-      <div class="py-4 px-4 fixed-bottom text-align-bottom">     
+      <div class="pb-4 pl-5 fixed-bottom text-align-bottom">     
         {% if page.type != "page" %}
           {% assign posts=site.posts | where:"lang-ref", page.lang-ref %}
           {% assign dkposts=posts | where:"lang", "da-DK" %}
@@ -207,8 +212,8 @@
           {% assign dkposts=pages | where:"lang", "da-DK" %}
           {% assign enposts=pages | where:"lang", "en" %}
         {% endif %}
-        <p><a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Da</a> |
-        <a class="languageselectors" languageselect="en" href="{{ enposts.first.url }}">En</a></p>
+        <p><a class="languageselectors" languageselect="da-DK" href="{{ dkposts.first.url }}">Dansk</a> |
+        <a class="languageselectors" languageselect="en" href="{{ enposts.first.url }}">English</a></p>
       </div>
     </div>
 
@@ -217,7 +222,6 @@
     </div>
   </div>
 </div>
-
 </body>
 
 <script>
@@ -240,5 +244,80 @@
     userLang = $(this).attr('languageselect');
     Cookies.set("language", userLang);
   });
+
+  function ago(date) {
+    function render(n, unit) {
+        return n + " " + unit + ((n == 1) ? "" : "s") + " ago";
+    }
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / (60 * 60 * 24 * 365));
+    if (Math.floor(seconds / (60 * 60 * 24 * 30 * 365)) >= 1) {
+        return render(interval, "year");
+    }
+    interval = Math.floor(seconds / (60 * 60 * 24 * 30));
+    if (interval >= 1) {
+        return render(interval, "month");
+    }
+    interval = Math.floor(seconds / (60 * 60 * 24));
+    if (interval >= 1) {
+        return render(interval, "day");
+    }
+    interval = Math.floor(seconds / (60 * 60));
+    if (interval >= 1) {
+        return render(interval, "hour");
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval >= 1) {
+        return render(interval, "minute");
+    }
+    interval = Math.floor(seconds);
+    return render(interval, "second");
+  }
+
+  function agoDK(date) {
+    function render(n, unit) {
+        return n + " " + unit + ((n == 1) ? "" : "s") + " siden";
+    }
+
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / (60 * 60 * 24 * 365));
+    if (Math.floor(seconds / (60 * 60 * 24 * 30 * 365)) >= 1) {
+        return render(interval, "år");
+    }
+    interval = Math.floor(seconds / (60 * 60 * 24 * 30));
+    if (interval >= 1) {
+        return render(interval, "måneder");
+    }
+    interval = Math.floor(seconds / (60 * 60 * 24));
+    if (interval >= 1) {
+        return render(interval, "dage");
+    }
+    interval = Math.floor(seconds / (60 * 60));
+    if (interval >= 1) {
+        return render(interval, "timer");
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval >= 1) {
+        return render(interval, "minutter");
+    }
+    interval = Math.floor(seconds);
+    return render(interval, "sekunder");
+  }
+
+var dateDK = document.getElementsByClassName("postedonDK");
+var postDK = document.getElementsByClassName("postedagoDK");
+for(var i=0; i<dateDK.length; i++) {
+  postDK[i].innerHTML = agoDK(Date.parse(dateDK[i].getAttribute("datetime")));
+}
+
+var date = document.getElementsByClassName("postedon");
+var post = document.getElementsByClassName("postedago");
+for(var i=0; i<date.length; i++) {
+  post[i].innerHTML = ago(Date.parse(date[i].getAttribute("datetime")));
+}
+
 </script>
 </html>
