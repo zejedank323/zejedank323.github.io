@@ -9,6 +9,9 @@ lang-ref: $1
 title: 
 ---" > $DATE-$1".md"
 
+code $DATE-$1".md"
+
+
 echo "---
 layout: post
 author: Dan Kristiansen
@@ -17,3 +20,5 @@ lang: da-DK
 lang-ref: $1
 title: 
 ---" > $DATE-$1"DK.md"
+
+code $DATE-$1"DK.md"
