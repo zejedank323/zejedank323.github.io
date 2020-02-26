@@ -7,7 +7,9 @@ lang-ref: summaries
 title: Automatisk Nyhedssummering
 ---
 
-Inspireret af det stigende antal nyheds medier tilgængeligt på internettet, udgiver vi en brugervenlig applikation til at skabe et hurtigt nyhedsmæssigt overblik på tværs af nyhedsmedier. Der findes allerede programmer, som kan oprette et enkelt resumé fra en enkelt artikel uden brugerinput. Disse kan reducere mængden af ​​tekst, som brugeren skal læse, mens de vigtigste punkter opretholdes. Brugeren har dog stadig brug for at læse flere resume for at forstå alle aspekter af begivenheden.
+Inspireret af det stigende antal nyheds medier tilgængeligt på internettet, udgiver vi en brugervenlig applikation til at skabe et hurtigt nyhedsmæssigt overblik på tværs af nyhedsmedier.
+
+Der findes allerede programmer, som kan oprette et enkelt resumé fra en enkelt artikel uden brugerinput. Disse kan reducere mængden af ​​tekst, som brugeren skal læse, mens de vigtigste punkter opretholdes. Brugeren har dog stadig brug for at læse flere resume for at forstå alle aspekter af begivenheden.
 
 Vi anvender en ekstraktiv metode til at generere referater af et sæt nyhedsartikler. Referaterne er konstrueret gennem en række moduler. Extractor modulets opgave er kontinuerligt at samle nye artikler i en database, hvorefter artiklerne er grupperet af Clustering modulet, baseret på artiklernes indhold. Summarizer modulet laver referater af de grupperede artikler.
 Modulerne er udviklet til at køre i Docker containers, hvilket giver et abstraktionslag som simplificerer opsætning og vedligeholdelse af maskiner for at gøre systemet skalérbart. De enkelte moduler er ligeledes implementeret med fokus på skalérbarhed, hvor beregningstunge operationer er blevet distribueret til flere processer for at effektivisere serverens ressourcer.
